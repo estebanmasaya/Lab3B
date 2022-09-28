@@ -23,14 +23,17 @@ public class Task implements Comparable<Task>, Serializable {
 
     public void setTakenBy(String takenBy){
         this.takenBy = takenBy;
+        lastUpdate = LocalDate.now();
     }
 
     public void setState(TaskState state){
         this.state = state;
+        lastUpdate = LocalDate.now();
     }
 
     public void setTaskPrio(Prio prio){
         taskPrio = prio;
+        lastUpdate = LocalDate.now();
     }
 
     public String getDescription() {
@@ -71,5 +74,17 @@ public class Task implements Comparable<Task>, Serializable {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "description='" + description + '\'' +
+                ", id=" + id +
+                ", takenBy='" + takenBy + '\'' +
+                ", state=" + state +
+                ", lastUpdate=" + lastUpdate +
+                ", taskPrio=" + taskPrio +
+                '}';
     }
 }
