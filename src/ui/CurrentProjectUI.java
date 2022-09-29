@@ -1,6 +1,7 @@
 package ui;
 
 import model.matcher.AllTasksmatcher;
+import model.matcher.ITaskMatcher;
 import model.matcher.NotDoneMatcher;
 import model.matcher.PrioMatcher;
 import model.*;

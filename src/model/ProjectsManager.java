@@ -30,7 +30,7 @@ public class ProjectsManager {
         return true;
     }
 
-    public void addProject(String title, String description){
+    public Project addProject(String title, String description){
         for(Project p : projects){
             if(p.getTitle().equals(title));
             // KASTA EXCEPTION!!!!
@@ -38,6 +38,7 @@ public class ProjectsManager {
                 projects.add(new Project(title, description, nextProjectId++));
             }
         }
+        return projects.get(projects.size() - 1);
     }
 
     public void removeProject(Project project){

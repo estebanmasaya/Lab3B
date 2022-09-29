@@ -31,12 +31,14 @@ public class Project implements Comparable<Project>, Serializable {
         return null;
     }
 
-    public List<Task> findTask(ItaskMatcher matcher) {
+    /*public List<Task> findTask(ItaskMatcher matcher) {
 
-    }
+    }*/
 
-    public void addTask(String description, Prio prio){
+    public Task addTask(String description, Prio prio){
+        Task newTask;
         tasks.add(new Task(description, prio, nextTaskId++));
+        return tasks.get(tasks.size() - 1);
     }
 
     public Task removeTask(Task task){
@@ -59,7 +61,7 @@ public class Project implements Comparable<Project>, Serializable {
         if(tasks.isEmpty()) return created;
         LocalDate max = tasks.get(0).getLastUpdate();
         for(Task t : tasks){
-            if((max.compareTo(t.getLastUpdate())<0){
+            if((max.compareTo(t.getLastUpdate()))<0){
                 max = t.getLastUpdate();
             }
         }
