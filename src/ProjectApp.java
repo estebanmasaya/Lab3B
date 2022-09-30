@@ -35,8 +35,8 @@ public class ProjectApp {
 
         // run method about to exit - save data
         if(couldReadFile || !projectsFile.exists()) {
-            //List<Project> projectsToSave = projectsManager.getProjects();
-            //ProjectsFileIO.serializeToFile(projectsFile, projectsToSave);
+            List<Project> projectsToSave = projectsManager.getProjects();
+            ProjectsFileIO.serializeToFile(projectsFile, projectsToSave);
         }
         System.out.println("Application exits");
     }

@@ -10,6 +10,6 @@ public class TakenByMatcher implements ITaskMatcher{
     }
 
     public boolean match(Task task) {
-        return true;
+        return takenBy.equals(task.getTakenBy());
     }
 }

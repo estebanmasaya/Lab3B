@@ -1,5 +1,7 @@
 package model;
 
+import model.exceptions.TitleNotUniqueException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,15 +32,17 @@ public class ProjectsManager {
         return true;
     }
 
-    public Project addProject(String title, String description){
+    public Project addProject(String title, String description) throws TitleNotUniqueException{
+        Project newProject = new Project(title, description, nextProjectId++);
         for(Project p : projects){
-            if(p.getTitle().equals(title));
-            // KASTA EXCEPTION!!!!
+            if(p.getTitle().equals(title)){
+                throw new TitleNotUniqueException(title + " is not unique");
+            }
             else{
-                projects.add(new Project(title, description, nextProjectId++));
+                projects.add(newProject);
             }
         }
-        return projects.get(projects.size() - 1);
+        return newProject;
     }
 
     public void removeProject(Project project){

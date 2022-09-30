@@ -1,9 +1,10 @@
 package model.matcher;
 
 import model.Task;
+import model.TaskState;
 
 public class NotDoneMatcher implements ITaskMatcher{
     public boolean match(Task task) {
-        return true;
+        return !(task.getState().equals(TaskState.DONE));
     }
 }

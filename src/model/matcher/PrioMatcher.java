@@ -11,6 +11,6 @@ public class PrioMatcher implements ITaskMatcher{
     }
 
     public boolean match(Task task) {
-        return true;
+        return prio.equals(task.getTaskPrio());
     }
 }

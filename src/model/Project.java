@@ -1,5 +1,7 @@
 package model;
 
+import model.matcher.ITaskMatcher;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -31,14 +33,20 @@ public class Project implements Comparable<Project>, Serializable {
         return null;
     }
 
-    /*public List<Task> findTask(ItaskMatcher matcher) {
-
-    }*/
+    public List<Task> findTasks(ITaskMatcher matcher) {
+        ArrayList tmp = new ArrayList<>();
+        for (Task t : tasks) {
+            if (matcher.match(t)) {
+                tmp.add(t);
+            }
+        }
+        return tmp;
+    }
 
     public Task addTask(String description, Prio prio){
-        Task newTask;
-        tasks.add(new Task(description, prio, nextTaskId++));
-        return tasks.get(tasks.size() - 1);
+        Task newTask = new Task(description, prio, nextTaskId++);
+        tasks.add(newTask);
+        return newTask;
     }
 
     public Task removeTask(Task task){

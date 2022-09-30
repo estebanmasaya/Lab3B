@@ -1,10 +1,11 @@
 package ui;
 
-import model.matcher.AllTasksmatcher;
+import model.matcher.TakenByMatcher;
 import model.matcher.ITaskMatcher;
 import model.matcher.NotDoneMatcher;
 import model.matcher.PrioMatcher;
 import model.*;
+import model.matcher.TakenByMatcher;
 
 import java.util.List;
 import java.util.Scanner;
@@ -41,7 +42,7 @@ class CurrentProjectUI {
 
             switch (choice) {
                 case 'T':
-                    viewTasks(new AllTasksmatcher());
+                    viewTasks(new TakenByMatcher("Masaya@hotmail.com"));
                     break;
                 case 'N':
                     viewTasks(new NotDoneMatcher());
