@@ -17,7 +17,7 @@ public class ProjectsManager {
 
     public void setProjects(List<Project> incomingProjects ){
         projects.clear();
-        nextProjectId = incomingProjects.get(incomingProjects.size()-1).getId()+1;
+        nextProjectId = (incomingProjects.get(incomingProjects.size() - 1).getId())+1;
         for(Project p : incomingProjects){
             projects.add(p);
         }
@@ -56,6 +56,10 @@ public class ProjectsManager {
             }
         }
         return null;
+    }
+
+    public ArrayList<Project> getProjects() {
+        return projects;
     }
 
     public List<Project> findProjects(String titleStr){
