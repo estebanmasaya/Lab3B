@@ -10,6 +10,9 @@ public class ProjectsManager {
     private int nextProjectId;
     private ArrayList<Project> projects;
 
+    /**
+     *
+     */
     public ProjectsManager() {
         this.nextProjectId = 0;
         projects = new ArrayList<>();
@@ -17,10 +20,8 @@ public class ProjectsManager {
 
     public void setProjects(List<Project> incomingProjects ){
         projects.clear();
-        nextProjectId = incomingProjects.get(incomingProjects.size()-1).getId()+1;
-        for(Project p : incomingProjects){
-            projects.add(p);
-        }
+        projects=(ArrayList<Project>) incomingProjects;
+        nextProjectId=getHighestId()+1;
     }
 
     public boolean isTitleUnique(String title){
@@ -33,14 +34,13 @@ public class ProjectsManager {
     }
 
     public Project addProject(String title, String description) throws TitleNotUniqueException{
-        Project newProject = new Project(title, description, nextProjectId++);
-        for(Project p : projects){
-            if(p.getTitle().equals(title)){
-                throw new TitleNotUniqueException(title + " is not unique");
-            }
-            else{
-                projects.add(newProject);
-            }
+        Project newProject = new Project(title, description, nextProjectId);
+        if(isTitleUnique(title)){
+            projects.add(newProject);
+            nextProjectId++;
+        }
+        else{
+            throw new TitleNotUniqueException(title + " is not unique");
         }
         return newProject;
     }
@@ -56,6 +56,10 @@ public class ProjectsManager {
             }
         }
         return null;
+    }
+
+    public ArrayList<Project> getProjects() {
+        return projects;
     }
 
     public List<Project> findProjects(String titleStr){
