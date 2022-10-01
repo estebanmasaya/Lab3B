@@ -10,6 +10,9 @@ public class ProjectsManager {
     private int nextProjectId;
     private ArrayList<Project> projects;
 
+    /**
+     *
+     */
     public ProjectsManager() {
         this.nextProjectId = 0;
         projects = new ArrayList<>();

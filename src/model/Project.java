@@ -15,6 +15,17 @@ public class Project implements Comparable<Project>, Serializable {
     private int nextTaskId;
     private ArrayList<Task> tasks;
 
+    /**
+     * Creates a new project with a given title, description and id
+     * Many Projects can belong to one ProjectsManager
+     * @param title The title of the project
+     * @param description Description of the project
+     * @param id An individual id of the created project
+     *           created - The current date the project was created
+     *           nextTaskId - ??????
+     *           tasks - An array of Tasks (objects)
+     *
+     */
     protected Project(String title, String description, int id) {
         this.title = title;
         this.id = id;
@@ -24,6 +35,11 @@ public class Project implements Comparable<Project>, Serializable {
         tasks = new ArrayList<>();
     }
 
+    /**
+     * Get a task by its specific task id
+     * @param id Specific task id
+     * @return A Task with the corresponding id
+     */
     public Task getTaskById(int id) {
         for (Task t: tasks) {
             if (t.getId() == id) {
