@@ -42,9 +42,8 @@ public class ProjectsFileIO {
             ois = new ObjectInputStream(fIn);
 
             list = (ArrayList<Project>) ois.readObject();
-        } catch (ClassNotFoundException e) {
-            throw e;
-        } finally {
+        }
+        finally {
             ois.close();
         }
         return list;
