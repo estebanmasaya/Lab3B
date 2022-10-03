@@ -121,7 +121,10 @@ public class ProjectsManager {
      * @return return an integer of the projects id
      */
     private int getHighestId(){
-        return projects.get(projects.size()-1).getId();
+        if(projects.size()>0) {
+            return projects.get(projects.size()-1).getId();
+        }
+        return 0;
     }
 
     /**
