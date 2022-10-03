@@ -42,12 +42,14 @@ public class ProjectsFileIO {
             ois = new ObjectInputStream(fIn);
 
             list = (ArrayList<Project>) ois.readObject();
-        }
-        finally {
+        } catch (ClassNotFoundException e) {
+            throw e;
+        } finally {
             ois.close();
         }
         return list;
     }
 
-    private ProjectsFileIO() {}
+    private ProjectsFileIO() {
+    }
 }

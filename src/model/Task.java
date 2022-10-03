@@ -9,9 +9,6 @@ import java.time.LocalDate;
  */
 public class Task implements Comparable<Task>, Serializable {
 
-    /**
-     *
-     */
     private String description;
     private final int id;
     private String takenBy;
