@@ -78,13 +78,16 @@ public class Task implements Comparable<Task>, Serializable {
 
     @Override
     public String toString() {
-        return "Task{" +
-                "description='" + description + '\'' +
-                ", id=" + id +
-                ", takenBy='" + takenBy + '\'' +
-                ", state=" + state +
-                ", lastUpdate=" + lastUpdate +
-                ", taskPrio=" + taskPrio +
-                '}';
+        String info = String.format("Task ID %-3d{ Description= %-20s TakenBy= %10s State= %-10s LastUpdate= %-15s TaskPrio= %-10s", id, description, takenBy,state,lastUpdate,taskPrio);
+        return info;
+//
+//                "Task{" +
+//                "description='" + description + '\'' +
+//                ", id=" + id +
+//                ", takenBy='" + takenBy + '\'' +
+//                ", state=" + state +
+//                ", lastUpdate=" + lastUpdate +
+//                ", taskPrio=" + taskPrio +
+//                '}';
     }
 }

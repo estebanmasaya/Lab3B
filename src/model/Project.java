@@ -123,6 +123,13 @@ public class Project implements Comparable<Project>, Serializable {
                 ", tasks=" + tasks +
                 '}';
     }
+
+/*    @Override*/
+/*    public String toString(){*/
+/*        String info = String.format("%-10s%10s%25s%15s%15s%15s\n%-10s%10d%25s%15s%15d%15s", "Project Title", "ID", "Description", "Created", "NextTaskID", "Tasks", title, id,description,created,nextTaskId, tasks);*/
+/*        return info;*/
+/*    }*/
+
 }
 
 

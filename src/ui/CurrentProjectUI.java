@@ -42,7 +42,7 @@ class CurrentProjectUI {
 
             switch (choice) {
                 case 'T':
-                    viewTasks(new TakenByMatcher("Masaya@hotmail.com"));
+                    viewTasks(new TakenByMatcher(""));
                     break;
                 case 'N':
                     viewTasks(new NotDoneMatcher());
