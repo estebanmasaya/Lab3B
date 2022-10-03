@@ -1,9 +1,6 @@
 package ui;
 
-import model.matcher.TakenByMatcher;
-import model.matcher.ITaskMatcher;
-import model.matcher.NotDoneMatcher;
-import model.matcher.PrioMatcher;
+import model.matcher.*;
 import model.*;
 import model.matcher.TakenByMatcher;
 
@@ -43,7 +40,12 @@ class CurrentProjectUI {
 
             switch (choice) {
                 case 'T':
-                    viewTasks(new TakenByMatcher("Masaya@hotmail.com"));
+                    viewTasks(new AllTasksMatcher());
+                    break;
+                case 'P':
+                    System.out.println("Give the name of the person/email");
+                    String name = scan.nextLine();
+                    viewTasks(new TakenByMatcher(name));
                     break;
                 case 'N':
                     viewTasks(new NotDoneMatcher());
@@ -108,6 +110,7 @@ class CurrentProjectUI {
         System.out.println("--- Manage " + currentProject.getTitle() + " ---");
         System.out.println("T - list all tasks");
         System.out.println("N - list tasks not done");
+        System.out.println("P - list tasks of a specific person");
         System.out.println("H - list high priority tasks");
         System.out.println("A - add task");
         System.out.println("U - update task");

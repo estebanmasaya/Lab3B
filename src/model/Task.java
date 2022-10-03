@@ -12,7 +12,7 @@ public class Task implements Comparable<Task>, Serializable {
     /**
      *
      */
-    private String description;
+    private final String description;
     private final int id;
     private String takenBy;
     private TaskState state;
@@ -135,12 +135,16 @@ public class Task implements Comparable<Task>, Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if(compareTo((Task) obj ) == 0) {
-            return true;
+        if (obj instanceof Task) {
+            return (compareTo((Task) obj ) == 0);
         }
         return false;
     }
 
+    /**
+     *
+     * @return returns a string representing the information of all the fields
+     */
     @Override
     public String toString() {
         return "Task:" +
