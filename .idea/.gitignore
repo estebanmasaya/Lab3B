@@ -3,7 +3,6 @@
 /workspace.xml
 out/
 .idea/
-.idea
 .idea_modules/
 *.iml
 *.ipr
