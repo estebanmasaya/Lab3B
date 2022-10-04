@@ -1,9 +1,9 @@
 # Default ignored files
+# Default ignored files
 /shelf/
 /workspace.xml
 .idea/
 out/
-.idea
 .idea_modules/
 *.iml
 *.ipr
