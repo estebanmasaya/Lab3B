@@ -59,6 +59,9 @@ class CurrentProjectUI {
                 case 'U':
                     updateTask();
                     break;
+                case 'R':
+                    deleteTask();
+                    break;
                 case 'X':
                     break;
                 default:
@@ -106,6 +109,19 @@ class CurrentProjectUI {
         }
     }
 
+    private void deleteTask(){
+        System.out.print("Task id?");
+        int id = scan.nextInt();
+        scan.nextLine();
+        Task task = currentProject.getTaskById(id);
+        if (task != null){
+            currentProject.removeTask(task);
+        }
+        else{
+            System.out.println("Id not found.");
+        }
+    }
+
     private void printCurrentProjectMenu() {
         System.out.println("--- Manage " + currentProject.getTitle() + " ---");
         System.out.println("T - list all tasks");
@@ -114,6 +130,7 @@ class CurrentProjectUI {
         System.out.println("H - list high priority tasks");
         System.out.println("A - add task");
         System.out.println("U - update task");
+        System.out.println("R - remove task");
         System.out.println("X - exit project menu");
         System.out.println("----------");
     }
