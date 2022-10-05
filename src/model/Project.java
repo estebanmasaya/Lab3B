@@ -5,6 +5,7 @@ import model.matcher.ITaskMatcher;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Project implements Comparable<Project>, Serializable {
@@ -55,12 +56,16 @@ public class Project implements Comparable<Project>, Serializable {
      * @return A list of the tasks
      */
     public List<Task> findTasks(ITaskMatcher matcher) {
+
         ArrayList tmp = new ArrayList<>();
         for (Task t : tasks) {
             if (matcher.match(t)) {
                 tmp.add(t);
             }
         }
+        Collections.sort(tmp);
+        Collections.reverse(tmp);
+
         return tmp;
     }
 
